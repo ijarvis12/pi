@@ -2,22 +2,25 @@
 # inputs: numprocs: number of processes running the function
 #                p: process number
 #              con: context precision
-#              end: ending summation iteration 
+#              tot: summation iteration total 
 #      return_list: dictionary of return values
-def pi(numprocs,p,con,end,return_list):
+def pi(numprocs,p,con,tot,return_list):
     from decimal import Decimal, getcontext
         
-#   variable start is the starting point to search from
-    start = end*p//numprocs
-    if start < 2:
-    start = 2
+#   variable start is the starting point
+    start = tot*p//numprocs
+    
+#   variable end is the stopping point
+    end = tot*(p+1)//numprocs
 
-#   do the grunt work
+#   setup
     getcontext.prec = con
     pi = Decimal(0)
     one = Decimal(1)
     four = Decimal(4)
     two = Decimal(2)
+    
+#   do the grunt work
     for k in range(start,end+1):
         pi += (one/16**k)*(four/(8*k+1)-two/(8*k+4)-one/(8*k+5)-one/(8*k+6))
     
