@@ -3,7 +3,7 @@
 #                p: process number
 #              con: context precision
 #              tot: summation iteration total 
-#      return_list: dictionary of return values
+#      return_list: list of return values
 def pi(numprocs,p,con,tot,return_list):
     from decimal import Decimal, getcontext
         
