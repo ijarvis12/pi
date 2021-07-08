@@ -50,7 +50,7 @@ if __name__ == '__main__':
     
 #   start jobs
     for p in range(numprocs):
-        job = multiprocessing.Process(target=primes, args=(numprocs,p,con,1447,return_list,))
+        job = multiprocessing.Process(target=pi, args=(numprocs,p,con,1447,return_list,))
         jobs.append(job)
         job.start()
 
