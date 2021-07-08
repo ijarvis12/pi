@@ -21,7 +21,7 @@ def pi(numprocs,p,con,tot,return_list):
     two = Decimal(2)
     
 #   do the grunt work
-    for k in range(start,end+1):
+    for k in range(start,end):
         pi += (one/16**k)*(four/(8*k+1)-two/(8*k+4)-one/(8*k+5)-one/(8*k+6))
     
     return_list.append(pi)
@@ -53,7 +53,7 @@ if __name__ == '__main__':
     
 #   start jobs
     for p in range(numprocs):
-        job = multiprocessing.Process(target=pi, args=(numprocs,p,con,1447,return_list,))
+        job = multiprocessing.Process(target=pi, args=(numprocs,p,con,1448,return_list,))
         jobs.append(job)
         job.start()
 
