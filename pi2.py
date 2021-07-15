@@ -1,20 +1,20 @@
 # function pi finds the digits of pi given inputs
-# inputs: numprocs: number of processes running the function
-#                p: process number
-#              con: context precision
-#              tot: summation iteration total 
-#      return_list: list of return values
-def pi(numprocs,p,con,tot,return_list):
+# inputs: num_procs: number of processes running the function
+#                 p: process number
+#              prec: context precision
+#          iter_tot: summation iteration total 
+#       return_list: list of return values
+def pi(num_procs,p,prec,iter_tot,return_list):
     from decimal import Decimal, getcontext
         
 #   variable start is the starting point
-    start = tot*p//numprocs
+    start = iter_tot*p//num_procs
     
 #   variable end is the stopping point
-    end = tot*(p+1)//numprocs
+    end = iter_tot*(p+1)//num_procs
 
 #   setup
-    getcontext.prec = con
+    getcontext().prec = prec
     pi = Decimal(0)
     one = Decimal(1)
     four = Decimal(4)
@@ -37,7 +37,7 @@ if __name__ == '__main__':
     from time import time
 
 #   number of processes the computer has
-    numprocs = multiprocessing.cpu_count()
+    num_procs = multiprocessing.cpu_count()
     
 #   get starting time for runtime total
     time1 = time()
@@ -49,11 +49,11 @@ if __name__ == '__main__':
     return_list = multiprocessing.Manager().list()
     
 #   set pi digit precision
-    con = getcontext.prec = 1750
+    prec = getcontext().prec = 1750
     
 #   start jobs
     for p in range(numprocs):
-        job = multiprocessing.Process(target=pi, args=(numprocs,p,con,1448,return_list,))
+        job = multiprocessing.Process(target=pi, args=(num_procs,p,prec,1448,return_list,))
         jobs.append(job)
         job.start()
 
@@ -72,4 +72,4 @@ if __name__ == '__main__':
     print(pi)
     print('Total calculation time: ', time2-time1)
 
-    garbage = input("Press <Enter> to end program")
+    _ = input("Press <Enter> to end program")
