@@ -52,7 +52,7 @@ if __name__ == '__main__':
     prec = getcontext().prec = 1750
     
 #   start jobs
-    for p in range(numprocs):
+    for p in range(num_procs):
         job = multiprocessing.Process(target=pi, args=(num_procs,p,prec,1448,return_list,))
         jobs.append(job)
         job.start()
