@@ -9,7 +9,7 @@ forloop n k value = do
   let four = (BigDecimal 4 0)/(8*k+1)
   let two = (BigDecimal 2 0)/(8*k+4)
   let hex = (BigDecimal 1 0)/(BigDecimal (16^(getValue k)) 0)
-  let pi = hex*(four-two-one1-one2) + value
+  let pi = (hex*(four-two-one1-one2)) + value
   if ((getValue n) == (getValue k)) then
     putStrLn (toString pi)
   else
