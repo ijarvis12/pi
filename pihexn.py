@@ -14,11 +14,16 @@ def pi(num_procs,p,n,sum_list):
 #   do the grunt work
     partial_dig = 0.0
     for k in range(start,end):
+        nk = 16**(n-k)
+        k1 = 8*k+1
+        k4 = 8*k+4
+        k5 = 8*k+5
+        k6 = 8*k+6
         partial_dig += (
-                        4*(16**(n-k)%(8*k+1))/(8*k+1)
-                        - 2*(16**(n-k)%(8*k+4))/(8*k+4)
-                        - (16**(n-k)%(8*k+5))/(8*k+5)
-                        - (16**(n-k)%(8*k+6))/(8*k+6)
+                        4*(nk % k1) / k1
+                        - 2*(nk % k4) / k4
+                        - (nk % k5) / k5
+                        - (nk % k6) / k6
         )
     
     sum_list.append(partial_dig)
