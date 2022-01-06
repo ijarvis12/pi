@@ -4,7 +4,9 @@
 --program that finds pi
 --multiprocessed
 
+-- cabal-install HasBigDecimal
 import Data.BigDecimal
+-- cabal-install parallel
 import Control.Monad
 import Control.Parallel
 
@@ -27,5 +29,6 @@ main = do
   putStrLn "Enter Number of Hexadecimal Digits (result is decimal):"
   i <- getLine
   let n = read i :: Integer
-  let pi = foldr (+) (BigDecimal 0 0) (head (result n))
-  putStrLn (toString pi)
+  -- can't use pi it's a constant in Prelude
+  let p = foldr (+) (BigDecimal 0 0) (head (result n))
+  putStrLn (toString p)
