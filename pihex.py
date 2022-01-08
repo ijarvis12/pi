@@ -4,7 +4,7 @@
 # Program that finds hexademical digits of pi #
 #                                             #
 
-print(hex(3)+'.',end='')
+print('3.',end='')
 max_n = 1000
 
 for n in range(max_n):
