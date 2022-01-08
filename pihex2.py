@@ -46,7 +46,7 @@ if __name__ == '__main__':
     time1 = time()
     
 #   inital setup
-    print(hex(3)+'.'+'ec419b778663f93d',end='')
+    print('3.ec419b778663f93',end='')
     max_n = 1000
     
 #   bulk work, find each hex digit n up to max_n
