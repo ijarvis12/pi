@@ -1,4 +1,6 @@
-# function pi finds the hex digit of pi given inputs
+#!/usr/bin/env python3
+
+# function pi finds an arbitrary hex digit of pi given inputs
 # inputs: num_procs: number of processes running the function
 #                 p: process number
 #                 n: hex digit number 
