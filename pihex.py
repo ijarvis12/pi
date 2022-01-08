@@ -1,3 +1,8 @@
+#!/usr/bin/env python3
+
+#                                             #
+# Program that finds hexademical digits of pi #
+#                                             #
 
 print(hex(3)+'.',end='')
 max_n = 1000
