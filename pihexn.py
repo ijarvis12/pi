@@ -4,7 +4,7 @@
 # inputs: num_procs: number of processes running the function
 #                 p: process number
 #                 n: hex digit number 
-#       sum_list: list of return values
+#          sum_list: list of return values
 def pi(num_procs,p,n,sum_list):
         
 #   variable start is the starting point
