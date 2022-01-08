@@ -90,12 +90,11 @@ if __name__ == '__main__':
     digit = hex(round(16*float('0.'+digit)))
     
 #   print the hex digit of pi!
-    print(digit,end='',flush=True)
+    print(digit)
     
 #   get ending time for runtime total
     time2 = time()
     
-    print()
     print('Total calculation time: ', time2-time1)
     
     _ = input("Press <Enter> to end program")
