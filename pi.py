@@ -22,3 +22,4 @@ time2 = time()
 
 print(pi)
 print('Total calculation time: ', time2-time1)
+_ = input("Press <Enter> to end program.")
