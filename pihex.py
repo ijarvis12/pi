@@ -33,3 +33,4 @@ for n in range(max_n):
 	print(digit,end='',flush=True)
 
 print()
+_ = input("Press <Enter> to end program.")
