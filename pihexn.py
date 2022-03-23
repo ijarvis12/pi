@@ -29,6 +29,7 @@ def pi(num_procs,p,n,sum_list):
         )
     
     sum_list.append(partial_dig)
+    return
     
 
 ##                                                            ##
