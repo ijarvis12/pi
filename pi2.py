@@ -25,6 +25,7 @@ def pi(num_procs,p,prec,iter_tot,return_list):
         pi += (one/16**k)*(four/(8*k+1)-two/(8*k+4)-one/(8*k+5)-one/(8*k+6))
     
     return_list.append(pi)
+    return
     
 
 ##                                                        ##
