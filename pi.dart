@@ -1,4 +1,4 @@
-import 'package:big_dart/big_dart.dart';
+import 'package:big_decimal/big_decimal.dart';
 import 'dart:math';
 import 'dart:io';
 
@@ -11,43 +11,43 @@ void main() {
         // initialize constants and vars
 
         int P = 1750;
-        var pi = Big(0).prec(P);
+        var pi = BigDecimal.parse('0').withScale(P);
 
-        var one = Big(1);
-        var four = Big(4);
-        var two = Big(2);
+        var one = BigDecimal.parse('1').withScale(P);
+        var four = BigDecimal.parse('4').withScale(P);
+        var two = BigDecimal.parse('2').withScale(P);
 
-        var sixteen = Big(16);
-        var eight = Big(8);
-        var five = Big(5);
-        var six = Big(6);
+        var sixteen = BigDecimal.parse('16');
+        var eight = BigDecimal.parse('8');
+        var five = BigDecimal.parse('5');
+        var six = BigDecimal.parse('6');
 
-        var bigK = Big(0);
-        var hex = Big(1);
+        var bigK = BigDecimal.parse('0');
+        var hex = BigDecimal.parse('1').withScale(P);
 
-        var four2 = Big(1);
-        var two2 = Big(1);
-        var one2 = Big(1);
-        var one3 = Big(1);
+        var four2 = BigDecimal.parse('1').withScale(P);
+        var two2 = BigDecimal.parse('1').withScale(P);
+        var one2 = BigDecimal.parse('1').withScale(P);
+        var one3 = BigDecimal.parse('1').withScale(P);
 
 
         // do calculation
         for (int k = 0; k < 1447; k++) {
-                bigK = Big(k);
-                hex = (one/sixteen.pow(k).prec(P)).prec(P);
-                four2 = (four/(eight*bigK+one).prec(P)).prec(P);
-                two2 = (two/(eight*bigK+four).prec(P)).prec(P);
-                one2 = (one/(eight*bigK+five).prec(P)).prec(P);
-                one3 = (one/(eight*bigK+6).prec(P)).prec(P);
+                bigK = BigDecimal.parse(k.toString());
+                hex = one.divide(sixteen.pow(k));
+                four2 = four.divide(eight*bigK+one);
+                two2 = two.divide(eight*bigK+four);
+                one2 = one.divide(eight*bigK+five);
+                one3 = one.divide(eight*bigK+six);
 
-                pi += (hex*(four2-two2-one2-one3)).prec(P);
+                pi += (hex*(four2-two2-one2-one3)).withScale(P);
         }
 
         // stop stopwatch for runtime total
         watch.stop();
         var time = watch.elapsedMilliseconds / 1000;
 
-        print(pi.prec(P));
+        print(pi.withScale(P));
         print('Total calculation time: $time');
         print("Press <Enter> to end program.");
         String? _ = stdin.readLineSync()!;
