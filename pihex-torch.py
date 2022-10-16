@@ -10,10 +10,12 @@ max_n = 1000
 
 for n in range(max_n):
 	
+#	use gpu
 	with torch.cuda.device(cuda):
 		
 		summation = torch.tensor(0.0, device=cuda)
-				
+		
+#		do grunt work
 		for k in range(n+1):
 			
 			nk = torch.tensor(16**(n-k), device=cuda)
@@ -29,7 +31,7 @@ for n in range(max_n):
 					- (nk % k6) / k6
 			)
 		
-#       send var to cpu for displaying
+#		send var to cpu for displaying
 		summ = summation.to(device=cpu)
 		
 	digit = str(summ.item()).split('.')[1]
