@@ -10,7 +10,7 @@ max_n = 1000
 
 for n in range(max_n):
 	
-	with torch.cuda.device():
+	with torch.cuda.device(cuda):
 		
 		summation = torch.tensor(0.0, device=cuda)
 				
