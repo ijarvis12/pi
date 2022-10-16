@@ -14,7 +14,7 @@ except:
 cpu = torch.device('cpu')
 cuda = torch.device('cuda')
 
-with torch.cuda.device():
+with torch.cuda.device(cuda):
 	
 	summation = torch.tensor(0.0, device=cuda)
 	
