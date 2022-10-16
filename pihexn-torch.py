@@ -14,10 +14,12 @@ except:
 cpu = torch.device('cpu')
 cuda = torch.device('cuda')
 
+# use gpu
 with torch.cuda.device(cuda):
 	
 	summation = torch.tensor(0.0, device=cuda)
 	
+#	do grunt work
 	for k in range(n+1):
 		
 		nk = torch.tensor(16**(n-k), device=cuda)
@@ -33,7 +35,7 @@ with torch.cuda.device(cuda):
 				- (nk % k6) / k6
 		)
 	
-#   send var to cpu for displaying
+#	send var to cpu for displaying
 	summ = summation.to(device=cpu)
 	
 digit = str(summ.item()).split('.')[1]
