@@ -13,16 +13,24 @@ for n in range(max_n):
 #	use gpu
 	with torch.cuda.device(cuda):
 		
+#		initialize
+		i = torch.tensor(n).cuda()
 		summation = torch.tensor(0.0, device=cuda)
+		nk = torch.tensor(0, device=cuda)
+		k1 = torch.tensor(0, device=cuda)
+		k4 = torch.tensor(0, device=cuda)
+		k5 = torch.tensor(0, device=cuda)
+		k6 = torch.tensor(0, device=cuda)
+		j = i.item()
 		
 #		do grunt work
-		for k in range(n+1):
+		for k in range(j+1):
 			
-			nk = torch.tensor(16**(n-k), device=cuda)
-			k1 = torch.tensor(8*k+1, device=cuda)
-			k4 = torch.tensor(8*k+4, device=cuda)
-			k5 = torch.tensor(8*k+5, device=cuda)
-			k6 = torch.tensor(8*k+6, device=cuda)
+			nk = 16**(j-k)
+			k1 = 8*k+1
+			k4 = 8*k+4
+			k5 = 8*k+5
+			k6 = 8*k+6
 			
 			summation += (
 					4*(nk % k1) / k1
@@ -32,9 +40,9 @@ for n in range(max_n):
 			)
 		
 #		send var to cpu for displaying
-		summ = summation.to(device=cpu)
+		summation.to(device=cpu)
 		
-	digit = str(summ.item()).split('.')[1]
+	digit = str(summation.item()).split('.')[1]
 	
 	digit = hex(round(16*float('0.'+digit)))[-1]
 	
