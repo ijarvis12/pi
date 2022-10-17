@@ -28,7 +28,8 @@ with torch.cuda.device(cuda):
 	j = i.item()
 	
 #	do grunt work
-	for k in range(j+1):
+	iterations = j + 1
+	for k in range(iterations):
 		
 		nk = 16**(j-k)
 		k1 = 8*k+1
