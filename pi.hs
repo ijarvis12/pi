@@ -4,7 +4,7 @@
 import Data.BigDecimal
 
 forLoop :: BigDecimal -> BigDecimal -> Integer -> IO ()
-forLoop k pval 0 = putStrLn (toString pval)
+forLoop k pval 2 = putStrLn (toString pval)
 forLoop k pval end = do
   let one1 = (bigDecimal 1 0)/((8*k)+5)
   let one2 = (bigDecimal 1 0)/((8*k)+6)
