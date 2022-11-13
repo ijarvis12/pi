@@ -1,11 +1,11 @@
 #!/usr/bin/env runhaskell
 
 -- cabal install HasBigDecimal
-import Data.HasBigDecimal     
+import Data.BigDecimal
 
-forloop :: BigDecimal -> BigDecimal -> BigDecimal -> Integer -> IO ()
-forloop n k pval 0 = putStrLn (toString p)
-forloop n k pval end = do
+forloop :: BigDecimal -> BigDecimal -> Integer -> IO ()
+forloop k pval 0 = putStrLn (toString pval)
+forloop k pval end = do
   let one1 = (bigDecimal 1 0)/((8*k)+5)
   let one2 = (bigDecimal 1 0)/((8*k)+6)
   let four = (bigDecimal 4 0)/((8*k)+1)
@@ -13,7 +13,7 @@ forloop n k pval end = do
   let hex = (bigDecimal 1 0)/(bigDecimal (16^(value k)) 0)
   -- Can't use pi b/c it's a constant in Prelude
   let p = (hex*(four-two-one1-one2)) + pval
-  forloop n (k+1) p (end-1)
+  forloop (k+1) p (end-1)
 
 main :: IO ()
 main = do
@@ -22,4 +22,4 @@ main = do
   i <- getLine
   let n = bigDecimal (read i :: Integer) 0
   let k = bigDecimal 0 0
-  forloop n k k (value n)
+  forloop k k (value n)
