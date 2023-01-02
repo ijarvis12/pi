@@ -20,6 +20,6 @@ main = do
   putStrLn "Calculate Digits of Pi"
   putStrLn "Enter Number of Hexadecimal Digits (result is decimal):"
   i <- getLine
-  let n = read i :: Integer
+  let end = read i :: Integer
   let k = BigDecimal 0 0
-  forLoop k k n
+  forLoop k k end
