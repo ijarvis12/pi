@@ -4,7 +4,7 @@
 import Data.BigDecimal
 
 forLoop :: BigDecimal -> BigDecimal -> Integer -> IO ()
-forLoop k pval 2 = putStrLn (show pval)
+forLoop k pval 2 = print pval
 forLoop k pval end = do
   let one1 = (BigDecimal 1 0)/((8*k)+5)
   let one2 = (BigDecimal 1 0)/((8*k)+6)
@@ -20,6 +20,6 @@ main = do
   putStrLn "Calculate Digits of Pi"
   putStrLn "Enter Number of Hexadecimal Digits (result is decimal):"
   i <- getLine
-  let n = BigDecimal (read i :: Integer) 0
+  let n = read i :: Integer
   let k = BigDecimal 0 0
-  forLoop k k (value n)
+  forLoop k k n
