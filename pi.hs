@@ -22,4 +22,4 @@ main = do
   i <- getLine
   let end = read i :: Integer
   let k = BigDecimal 0 0
-  forLoop k k (abs end)
+  forLoop k k (max (abs end) 3)
